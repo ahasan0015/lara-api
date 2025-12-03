@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sohan Web Development Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Sohan Web Development Academy – Premium web development training for students aged 10–14."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary: #0a1a2f;
+      --accent: #1f6feb;
+      --bg: #f4f6fa;
+      --light: #ffffff;
+      --text: #1b1f23;
+      --muted: #6a737d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+    .container {
+      width: min(1100px, 100% - 2rem);
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--primary);
+      color: var(--light);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      opacity: 0.9;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(
+          135deg,
+          rgba(31, 111, 235, 0.08),
+          rgba(10, 26, 47, 0.9)
+        ),
+        url("https://images.pexels.com/photos/4144096/pexels-photo-4144096.jpeg")
+          center/cover no-repeat;
+      color: var(--light);
+      padding: 4rem 0 3.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.1vw + 1rem, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      max-width: 32rem;
+      margin-bottom: 1.25rem;
+      opacity: 0.95;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.25rem 0.85rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-tag span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #2ea043;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--light);
+      border: none;
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      background: transparent;
+      color: var(--light);
+      cursor: pointer;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 1.2rem;
+      padding: 1.5rem 1.4rem;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card li::before {
+      content: "• ";
+      color: #79c0ff;
+    }
+
+    .hero-note {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 1rem;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      background: #e6f0ff;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-grid ul {
+      list-style: none;
+      font-size: 0.9rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .about-grid li::before {
+      content: "✔ ";
+      color: #2ea043;
+    }
+
+    /* Roadmap */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .roadmap-item {
+      background: var(--light);
+      border-radius: 0.9rem;
+      padding: 1rem 1rem;
+      border: 1px solid #dde3ec;
+      font-size: 0.85rem;
+    }
+
+    .roadmap-age {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .roadmap-item ul {
+      list-style: none;
+      padding-left: 0.3rem;
+    }
+
+    .roadmap-item li::before {
+      content: "• ";
+      color: var(--muted);
+    }
+
+    /* Stack / Projects / Parents */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .list-title {
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
+    }
+
+    .simple-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .simple-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .simple-list li::before {
+      content: "› ";
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 1.1rem;
+      padding: 1.6rem 1.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.3rem;
+      align-items: center;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .contact-details {
+      font-size: 0.85rem;
+    }
+
+    .contact-details div {
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-details span {
+      color: #9cc4ff;
+    }
+
+    footer {
+      padding: 1.25rem 0 1.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .about-grid,
+      .roadmap-grid,
+      .two-col,
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .roadmap-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .roadmap-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .contact-card {
+        padding: 1.3rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="logo">Sohan Web Development Academy</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#roadmap">Ages 10–14</a>
+        <a href="#stack">What Students Learn</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-tag">
+          <span></span>
+          <div>Premium web development for ages 10–14</div>
+        </div>
+        <h1>Help your child become a confident young web developer.</h1>
+        <p class="hero-sub">
+          A structured, age-based program where students learn HTML, CSS, JavaScript,
+          Git, React and backend — step by step, with real projects and patient guidance.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact">
+            <button class="btn-primary">Book a Parent Consultation</button>
+          </a>
+          <a href="#roadmap">
+            <button class="btn-ghost">View age-based roadmap</button>
+          </a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>What makes this academy different?</h3>
+        <ul>
+          <li>Focused only on students aged 10–14</li>
+          <li>Clear roadmap from Scratch to full websites</li>
+          <li>Project-based learning, not just theory</li>
+          <li>Parents can track code and progress on GitHub</li>
+        </ul>
+        <p class="hero-note">
+          Instructor: <strong>Md. Shafiul Islam Sohan</strong><br />
+          Email: <strong>sohan110111@gmail.com</strong><br />
+          Phone: <strong>01874998783</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Sohan Web Development Academy</h2>
+      <p class="section-sub">
+        A focused place for kids and teens to learn real web development in a safe, structured way.
+      </p>
+      <div class="about-grid">
+        <div class="card">
+          <div class="badge">Instructor-led · Project-based</div>
+          <p>
+            Sohan Web Development Academy is founded and taught by
+            <strong>Md. Shafiul Islam Sohan</strong>. The program is designed specifically for
+            students aged 10–14, with content carefully matched to their age and learning speed.
+          </p>
+          <p>
+            Instead of only watching videos, students build real-world projects such as
+            portfolios, quizzes, dashboards and more — using the same tools as professional developers.
+          </p>
+        </div>
+        <div>
+          <ul>
+            <li>Friendly explanations with real examples</li>
+            <li>Special focus on problem-solving and logic</li>
+            <li>Regular communication with parents</li>
+            <li>Emphasis on safe, respectful online behavior</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap">
+    <div class="container">
+      <h2 class="section-title">Age-Based Learning Plan (10–14 Years)</h2>
+      <p class="section-sub">
+        A clear roadmap so parents know exactly what their child is learning at each age.
+      </p>
+      <div class="roadmap-grid">
+        <div class="roadmap-item">
+          <div class="roadmap-age">Age 10–11 · Foundation</div>
+          <ul>
+            <li>Scratch & Code.org logic games</li>
+            <li>Basic computer & typing skills</li>
+            <li>How websites and the internet work</li>
+            <li>Introduction to digital safety</li>
+          </ul>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-age">Age 11–12 · Web Start</div>
+          <ul>
+            <li>HTML structure (headings, images, links)</li>
+            <li>CSS basics (color, fonts, spacing)</li>
+            <li>First personal and school project websites</li>
+            <li>Simple layout with Flexbox</li>
+          </ul>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-age">Age 12–13 · JavaScript Core</div>
+          <ul>
+            <li>Variables, functions, loops, conditions</li>
+            <li>DOM & events (click, key, input)</li>
+            <li>Small apps like calculators & quizzes</li>
+            <li>Git & GitHub introduction</li>
+          </ul>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-age">Age 13–14 · Modern Web Developer</div>
+          <ul>
+            <li>React basics (components, props, state)</li>
+            <li>Intro to Next.js & simple APIs</li>
+            <li>Node.js & MongoDB (beginner level)</li>
+            <li>Publishing and portfolio building</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stack & Projects -->
+  <section id="stack">
+    <div class="container">
+      <h2 class="section-title">What Students Learn</h2>
+      <p class="section-sub">
+        From first website to modern frameworks — carefully introduced at the right age.
+      </p>
+      <div class="two-col">
+        <div class="card">
+          <div class="list-title">Tech Stack</div>
+          <ul class="simple-list">
+            <li>HTML, CSS, JavaScript</li>
+            <li>Scratch & Code.org (younger ages)</li>
+            <li>Git & GitHub</li>
+            <li>Figma / Canva for UI design</li>
+            <li>React & Next.js (for older students)</li>
+            <li>Node.js & MongoDB (intro)</li>
+          </ul>
+        </div>
+        <div class="card" id="projects">
+          <div class="list-title">Projects Students Build</div>
+          <ul class="simple-list">
+            <li>Personal portfolio website</li>
+            <li>Interactive quiz or mini-game</li>
+            <li>Weather app using a public API</li>
+            <li>Todo / notes app (with data storage)</li>
+            <li>Simple dashboard or shop demo</li>
+          </ul>
+          <p style="font-size:0.8rem; margin-top:0.4rem;">
+            Major projects are pushed to GitHub so parents can see real progress anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parents -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Why Parents Trust This Program</h2>
+      <p class="section-sub">
+        Designed with both student learning and parent visibility in mind.
+      </p>
+      <div class="two-col">
+        <div class="card">
+          <div class="list-title">For Students</div>
+          <ul class="simple-list">
+            <li>Simple explanations with real examples</li>
+            <li>Hands-on, project-based learning</li>
+            <li>Confidence-building environment</li>
+            <li>Encourages creativity and curiosity</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="list-title">For Parents</div>
+          <ul class="simple-list">
+            <li>Clear roadmap for ages 10–14</li>
+            <li>Visible projects and GitHub activity</li>
+            <li>Safe and respectful online practice</li>
+            <li>Direct communication with the instructor</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div>
+          <h3>Let’s talk about your child’s learning journey.</h3>
+          <p>
+            Share your child’s age and experience, and we’ll help you decide the best starting level in the program.
+          </p>
+        </div>
+        <div class="contact-details">
+          <div><span>Instructor:</span> Md. Shafiul Islam Sohan</div>
+          <div><span>Email:</span> <a href="mailto:sohan110111@gmail.com">sohan110111@gmail.com</a></div>
+          <div><span>Phone:</span> <a href="tel:01874998783">01874998783</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Sohan Web Development Academy. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
