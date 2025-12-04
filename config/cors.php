@@ -8,7 +8,7 @@ return [
 
     'allowed_origins' => ['http://localhost:5173'],  // or specific: ['https://yourdomain.com']
 
-    'allowed_origins_patterns' => [],
+    // 'allowed_origins_patterns' => [],
 
     'allowed_headers' => ['*'],  // or ['Content-Type', 'Authorization']
 
