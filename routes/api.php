@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiresource('/post',PostController::class);
 });
 Route::post('/logout',[ApiController::class, 'logout']);
+
 Route::apiResource('/categories',CategoryController::class);
 Route::apiResource('/products',ProductController::class);
 

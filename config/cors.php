@@ -6,7 +6,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:5173'],  // or specific: ['https://yourdomain.com']
+    'allowed_origins' => ['*'],  // or specific: ['https://yourdomain.com']
 
     // 'allowed_origins_patterns' => [],
 

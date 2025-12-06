@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
         $category = Category::create([
             'name' => $request->name,
-            'is_active' => $request->is_active,
+            'is_inactive' => $request->is_inactive,
         ]);
         if($category){
             
@@ -78,7 +78,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       
     }
 
     /**
