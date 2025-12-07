@@ -29,8 +29,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product =Products::create($request->all());
-        return response()->json($product,201);
+        // return 'ok';
+        $data = $request->all();
+        if ($request->file('photo')) {
+            $filename = time().'.'.$request->file('photo')->extension();
+            // return $filename;
+            $request->file('photo')->move(public_path('uploads/products'), $filename);
+            $path = 'uploads/products/'.$filename;
+            $data['photo'] =$path;
+        }
+    
+        $product = Products::create($data);
+    
+        return response()->json($product, 201);
     }
 
     /**
